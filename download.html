@@ -2,8 +2,8 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download — Ensemble</title>
-<meta name="description" content="Download Ensemble for Windows, request TestFlight for iPad and Mac, and run the free server on your own machine.">
-<meta property="og:title" content="Download — Ensemble"><meta property="og:description" content="Download Ensemble for Windows, request TestFlight for iPad and Mac, and run the free server on your own machine."><meta property="og:type" content="website">
+<meta name="description" content="Download the Ensemble app for Windows, request TestFlight for iPad and Mac, or host your own free server.">
+<meta property="og:title" content="Download — Ensemble"><meta property="og:description" content="Download the Ensemble app for Windows, request TestFlight for iPad and Mac, or host your own free server."><meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="img/favicon.png"><link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/style.css">
 </head><body>
@@ -20,18 +20,21 @@
 <header class="hero small"><div class="wrap">
   <span class="pill">Downloads</span>
   <h1>Get <span>Ensemble.</span></h1>
-  <p class="lead">Ensemble is free for one user on your own devices. Download it for Windows today, get the iPad and Mac apps through TestFlight, and run the free server on your own machine when your team is ready.</p>
+  <p class="lead">Ensemble is free for one user on your own devices. Most people only need the app. A server is optional, for teams that want to share workspaces on their own machine.</p>
+  <div class="tabs" role="tablist"><button class="tab on" role="tab" data-tab="app">Get the app</button><button class="tab" role="tab" data-tab="server">Host your server</button></div>
 </div></header>
 
-<section><div class="wrap"><span class="eyebrow">Apps</span><h2>Get Ensemble on your <span>devices</span></h2>
+<div class="tabpanel on" id="tab-app" role="tabpanel">
+<section style="padding-top:30px"><div class="wrap"><span class="eyebrow">The Ensemble app</span><h2>Pick your <span>device</span></h2>
+<p class="sub">This is what you use every day: the canvas, the 3D models, the boards. Free for one user, no account, works offline.</p>
 <div class="grid g4 dl">
-  <div class="card"><div class="ic">🖥️</div><h3>Windows</h3><p>Windows 10 or later, 64-bit. Signed installer. Choose “Ensemble only” to connect to a server, or “Ensemble and the server” to host workspaces on this PC.</p>
+  <div class="card"><div class="ic">🖥️</div><h3>Windows</h3><p>Windows 10 or later, 64-bit. Signed installer. When it asks, choose “Ensemble only”.</p>
     <p class="meta" id="win-meta">Checking latest version…</p>
     <a class="btn primary" id="win-btn" href="https://github.com/gabgiani/ensemble-downloads/releases/latest">Download for Windows</a></div>
-  <div class="card"><div class="ic">💻</div><h3>Mac</h3><p>Macs with Apple silicon can run the iPad app through TestFlight: ask for an invite below. A native Mac download is in preparation.</p>
+  <div class="card"><div class="ic">💻</div><h3>Mac</h3><p>Macs with Apple silicon can run the iPad app through TestFlight. A native Mac download is in preparation.</p>
     <p class="meta">Free · Apple silicon</p>
     <a class="btn primary" href="mailto:gabriel.giani@gmail.com?subject=Ensemble%20TestFlight%20invite&body=Hi%21%20Please%20send%20me%20a%20TestFlight%20invite%20for%20Ensemble.%0A%0AName%3A%0ACompany%20%28optional%29%3A%0AEmail%20of%20my%20Apple%20ID%20%28the%20one%20I%20use%20for%20TestFlight%29%3A%0ADevice%3A%20iPad%20/%20iPhone%20/%20Mac%20with%20Apple%20silicon%0A">Request TestFlight</a></div>
-  <div class="card"><div class="ic">📱</div><h3>iPad &amp; iPhone</h3><p>Beta through TestFlight. Tell us the email of your Apple ID and we send you the invite.</p>
+  <div class="card"><div class="ic">📱</div><h3>iPad &amp; iPhone</h3><p>Beta through TestFlight. Send us the email of your Apple ID and we send you the invite.</p>
     <p class="meta">Free · iPadOS / iOS</p>
     <a class="btn primary" href="mailto:gabriel.giani@gmail.com?subject=Ensemble%20TestFlight%20invite&body=Hi%21%20Please%20send%20me%20a%20TestFlight%20invite%20for%20Ensemble.%0A%0AName%3A%0ACompany%20%28optional%29%3A%0AEmail%20of%20my%20Apple%20ID%20%28the%20one%20I%20use%20for%20TestFlight%29%3A%0ADevice%3A%20iPad%20/%20iPhone%20/%20Mac%20with%20Apple%20silicon%0A">Request TestFlight</a></div>
   <div class="card"><div class="ic">🥽</div><h3>Meta Quest viewer</h3><p>3D viewer for Quest 2, installed by sideloading for now.</p>
@@ -40,18 +43,22 @@
 </div>
 <div class="note tf"><b>How TestFlight works.</b> You install Apple’s free TestFlight app, we add your Apple ID email as a tester, and Apple emails you the invite. <a href="mailto:gabriel.giani@gmail.com?subject=Ensemble%20TestFlight%20invite&body=Hi%21%20Please%20send%20me%20a%20TestFlight%20invite%20for%20Ensemble.%0A%0AName%3A%0ACompany%20%28optional%29%3A%0AEmail%20of%20my%20Apple%20ID%20%28the%20one%20I%20use%20for%20TestFlight%29%3A%0ADevice%3A%20iPad%20/%20iPhone%20/%20Mac%20with%20Apple%20silicon%0A">Request your invite →</a></div>
 </div></section>
-
 <section class="alt free-band"><div class="wrap split">
   <div class="txt"><span class="eyebrow">Free for you</span><h2>Use it free on your devices, <span>as one user.</span></h2><p class="sub">Working on your own is free: every tool, no account, no connection. Add collaborators when you are ready; guests who only view are always free.</p></div>
-  <ul class="ticks big"><li>No account needed to work on your device</li><li>Works offline: your files stay on your device</li><li>Free self-hosted server for your team</li><li>Viewers join for free</li></ul></div></section>
+  <ul class="ticks big"><li>No account needed to work on your device</li><li>Works offline: your files stay on your device</li><li>Share with your team later, from your own server or from our cloud</li><li>Viewers join for free</li></ul></div></section>
+<section><div class="wrap center"><span class="eyebrow">Working with a team?</span><h2>Your team needs <span>a server.</span></h2>
+<p class="sub">To share a workspace, someone hosts it. That can be our cloud, or a free server that you run yourself. Setting up a server is a separate step.</p>
+<div class="cta" style="margin-top:26px"><a class="btn primary" href="#server" data-tab="server">Host your server →</a></div></div></section>
+</div>
 
-<section><div class="wrap"><span class="eyebrow">Ensemble Server</span><h2>Host your own workspace</h2>
-<p class="sub">Free, self-hosted. Your team connects from the apps and your files never leave your network. Versions are published on a public GitHub release page, so you can verify every download.</p>
+<div class="tabpanel" id="tab-server" role="tabpanel">
+<section style="padding-top:30px"><div class="wrap"><span class="eyebrow">Ensemble Server</span><h2>Host your <span>server</span></h2>
+<p class="sub">Optional. Run the Ensemble Server on a machine in your network and your team connects to it from the apps. Free, self-hosted, and your files never leave your network. Versions are published on a public GitHub release page, so you can verify every download.</p>
 <div class="grid g3 dl">
   <div class="card"><div class="ic">🖥️</div><h3>Windows</h3><p>The same installer as the app. Choose “Ensemble and the server” and the server runs from the tray.</p>
     <p class="meta" id="win2-meta">Checking latest version…</p>
     <a class="btn primary" id="win2-btn" href="https://github.com/gabgiani/ensemble-downloads/releases/latest">Download for Windows</a></div>
-  <div class="card"><div class="ic">💻</div><h3>macOS</h3><p>macOS 13 or later, Apple silicon. Signed and notarized.</p>
+  <div class="card"><div class="ic">💻</div><h3>macOS</h3><p>Server only. macOS 13 or later, Apple silicon. Signed and notarized.</p>
     <p class="meta" id="mac-meta">Checking latest version…</p>
     <a class="btn primary" id="mac-btn" href="https://github.com/gabgiani/ensemble-downloads/releases/latest">Download for Mac</a>
     <a class="alt-link" id="mac-zip" href="https://github.com/gabgiani/ensemble-downloads/releases/latest">or the .zip</a></div>
@@ -59,8 +66,9 @@
     <p class="meta">Want it first? Tell us.</p>
     <a class="btn" href="mailto:gabriel.giani@gmail.com?subject=Ensemble%20Server%20for%20Linux&body=Hi%21%20I%20would%20like%20to%20be%20told%20when%20the%20Linux%20server%20is%20available.%0A%0AName%3A%0ACompany%20%28optional%29%3A%0ADistribution%3A%0A">Notify me</a></div>
 </div>
-<p class="note">Every release lists its SHA-256 on the public release page, so you can check the file you downloaded. Need a closed or air-gapped installation? <a href="mailto:gabriel.giani@gmail.com?subject=Ensemble%20on-premise&body=Hi%21%20We%20would%20like%20to%20talk%20about%20running%20Ensemble%20on-premise.%0A%0ACompany%3A%0ANetwork%20type%3A%0A">Talk to us.</a></p>
+<p class="note">Every release lists its SHA-256 on the public release page. After installing, the first account you create becomes the administrator. Then connect the app by entering the server address. <a href="on-premise.html">On-premise guide →</a> · Need a closed or air-gapped installation? <a href="mailto:gabriel.giani@gmail.com?subject=Ensemble%20on-premise&body=Hi%21%20We%20would%20like%20to%20talk%20about%20running%20Ensemble%20on-premise.%0A%0ACompany%3A%0ANetwork%20type%3A%0A">Talk to us.</a></p>
 </div></section>
+</div>
 <script>
 (function(){
   var base="https://gabgiani.github.io/ensemble-downloads/";

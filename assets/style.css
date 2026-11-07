@@ -127,3 +127,8 @@ footer{border-top:1px solid var(--line);padding:46px 0 24px;color:var(--mute);fo
 .note.tf{margin-top:22px;border-style:solid;border-color:color-mix(in srgb,var(--accent) 35%,var(--line));background:color-mix(in srgb,var(--accent) 6%,var(--card))}
 .note a{color:var(--accent);font-weight:600}
 .dl .meta{margin-top:auto}
+
+.tabs{display:inline-flex;gap:6px;padding:5px;margin-top:6px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.tab{border:0;background:transparent;color:var(--mute);font:inherit;font-weight:600;padding:10px 22px;border-radius:999px;cursor:pointer}
+.tab.on{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.js .tabpanel{display:none}.js .tabpanel.on{display:block}

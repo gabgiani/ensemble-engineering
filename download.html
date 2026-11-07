@@ -2,8 +2,8 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download — Ensemble</title>
-<meta name="description" content="Download the Ensemble app for Windows, request TestFlight for iPad and Mac, or host your own free server.">
-<meta property="og:title" content="Download — Ensemble"><meta property="og:description" content="Download the Ensemble app for Windows, request TestFlight for iPad and Mac, or host your own free server."><meta property="og:type" content="website">
+<meta name="description" content="Download the Ensemble app for Windows and Mac, request TestFlight for iPad, or host your own free server.">
+<meta property="og:title" content="Download — Ensemble"><meta property="og:description" content="Download the Ensemble app for Windows and Mac, request TestFlight for iPad, or host your own free server."><meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="img/favicon.png"><link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/style.css">
 </head><body>
@@ -20,7 +20,7 @@
 <header class="hero small"><div class="wrap">
   <span class="pill">Downloads</span>
   <h1>Get <span>Ensemble.</span></h1>
-  <p class="lead">Ensemble is free for one user on your own devices. Most people only need the app. A server is optional, for teams that want to share workspaces on their own machine.</p>
+  <p class="lead">Ensemble is free for one user on your own devices. Download the app for Windows or Mac, or request TestFlight for iPad. Most people only need the app. A server is optional, for teams that want to share workspaces on their own machine.</p>
   <div class="tabs" role="tablist"><button class="tab on" role="tab" data-tab="app">Get the app</button><button class="tab" role="tab" data-tab="server">Host your server</button></div>
 </div></header>
 
@@ -31,9 +31,10 @@
   <div class="card"><div class="ic">🖥️</div><h3>Windows</h3><p>Windows 10 or later, 64-bit. Signed installer. When it asks, choose “Ensemble only”.</p>
     <p class="meta" id="win-meta">Checking latest version…</p>
     <a class="btn primary" id="win-btn" href="https://github.com/gabgiani/ensemble-downloads/releases/latest">Download for Windows</a></div>
-  <div class="card"><div class="ic">💻</div><h3>Mac</h3><p>Macs with Apple silicon can run the iPad app through TestFlight. A native Mac download is in preparation.</p>
-    <p class="meta">Free · Apple silicon</p>
-    <a class="btn primary" href="mailto:gabriel.giani@gmail.com?subject=Ensemble%20TestFlight%20invite&body=Hi%21%20Please%20send%20me%20a%20TestFlight%20invite%20for%20Ensemble.%0A%0AName%3A%0ACompany%20%28optional%29%3A%0AEmail%20of%20my%20Apple%20ID%20%28the%20one%20I%20use%20for%20TestFlight%29%3A%0ADevice%3A%20iPad%20/%20iPhone%20/%20Mac%20with%20Apple%20silicon%0A">Request TestFlight</a></div>
+  <div class="card"><div class="ic">💻</div><h3>Mac</h3><p>macOS 13 or later, Apple silicon. Signed with Developer ID and notarized by Apple.</p>
+    <p class="meta" id="macapp-meta">Checking latest version…</p>
+    <a class="btn primary" id="macapp-btn" href="https://github.com/gabgiani/ensemble-downloads/releases">Download for Mac</a>
+    <a class="alt-link" id="macapp-zip" href="https://github.com/gabgiani/ensemble-downloads/releases">or the .zip</a></div>
   <div class="card"><div class="ic">📱</div><h3>iPad &amp; iPhone</h3><p>Beta through TestFlight. Send us the email of your Apple ID and we send you the invite.</p>
     <p class="meta">Free · iPadOS / iOS</p>
     <a class="btn primary" href="mailto:gabriel.giani@gmail.com?subject=Ensemble%20TestFlight%20invite&body=Hi%21%20Please%20send%20me%20a%20TestFlight%20invite%20for%20Ensemble.%0A%0AName%3A%0ACompany%20%28optional%29%3A%0AEmail%20of%20my%20Apple%20ID%20%28the%20one%20I%20use%20for%20TestFlight%29%3A%0ADevice%3A%20iPad%20/%20iPhone%20/%20Mac%20with%20Apple%20silicon%0A">Request TestFlight</a></div>
@@ -86,6 +87,10 @@
     }).catch(function(){ids.forEach(function(pre){var meta=document.getElementById(pre+"-meta");if(meta)meta.textContent="See the release page for the latest version.";});});
   }
   fill("server-windows-x64.json",["win","win2"]);
+  fill("app-macos-arm64.json",["macapp"],function(m){
+    document.getElementById("macapp-zip").href=m.download_url;
+    document.getElementById("macapp-btn").href=m.download_url.replace(/[.]zip$/,".pkg");
+  });
   fill("server-macos-arm64.json",["mac"],function(m){
     document.getElementById("mac-zip").href=m.download_url;
     document.getElementById("mac-btn").href=m.download_url.replace(/[.]zip$/,".pkg");

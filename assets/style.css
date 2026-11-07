@@ -123,3 +123,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 24px;color:var(--mute);fo
 .matrix td:first-child{color:var(--mute);font-weight:600;width:24%}
 .matrix th:not(:first-child){color:var(--text)}
 @media(max-width:860px){.diagram{grid-template-columns:1fr}.link{transform:rotate(90deg)}.foot{grid-template-columns:1fr 1fr}.mega-in{grid-template-columns:1fr 1fr}}
+
+.note.tf{margin-top:22px;border-style:solid;border-color:color-mix(in srgb,var(--accent) 35%,var(--line));background:color-mix(in srgb,var(--accent) 6%,var(--card))}
+.note a{color:var(--accent);font-weight:600}
+.dl .meta{margin-top:auto}

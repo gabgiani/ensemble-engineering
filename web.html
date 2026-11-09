@@ -14,24 +14,51 @@
     <li><a href="features.html">Features</a></li>
     <li><a href="how-it-works.html">How it works</a></li>
     <li><a href="on-premise.html">On-premise</a></li>
+    <li><a href="vr-cad-analysis.html">VR</a></li>
     <li><a href="web.html">Web</a></li>
     <li><a href="download.html">Download</a></li>
   </ul>
+  <a class="btn" href="web.html#request">Request access</a>
   <a class="btn primary" href="download.html">Use it free</a>
 </div></nav>
 <header class="hero small"><div class="wrap">
   <span class="pill">Web version</span>
   <h1>Ensemble in <span>your browser.</span></h1>
   <p class="lead">Open your workspaces from a browser, with nothing to install. Access is by invitation: you request it with a short form and the administrator approves it.</p>
-  <div class="cta"><a class="btn primary" href="https://ensemble.dafonet.com/app/">Open the web version</a><a class="btn" href="https://ensemble.dafonet.com/api/access/form">Request access</a></div>
-  <p class="small" style="margin-top:14px">The web version is rolling out; if the link does not open yet, request access and we will tell you when it is ready.</p>
+  <div class="cta"><a class="btn primary" href="#request">Request access</a><a class="btn" href="https://ensemble.dafonet.com/app/">Open the web version</a></div>
+  <p class="small" style="margin-top:14px">Already approved? Open the web version and sign in with your email.</p>
 </div></header>
 <section><div class="wrap center"><span class="eyebrow">Access by invitation</span><h2>Three steps <span>to get in.</span></h2>
 <div class="grid g3">
-  <div class="card step"><span class="n">01</span><h3>Request access</h3><p>Fill in the <a href="https://ensemble.dafonet.com/api/access/form">access form</a> to ask for access.</p></div>
+  <div class="card step"><span class="n">01</span><h3>Request access</h3><p>Fill in the <a href="#request">form below</a> with your company and your role.</p></div>
   <div class="card step"><span class="n">02</span><h3>The administrator approves</h3><p>The administrator reviews requests from a manager and approves the people who can come in.</p></div>
   <div class="card step"><span class="n">03</span><h3>Open it in the browser</h3><p>Once approved, go to <a href="https://ensemble.dafonet.com/app/">https://ensemble.dafonet.com/app/</a> to use it. No installation.</p></div>
 </div></div></section>
+<section id="request"><div class="wrap center"><span class="eyebrow">Request access</span><h2>Tell us <span>who you are.</span></h2>
+<p class="sub">Access is by invitation. The administrator reviews each request and writes back to you by email.</p>
+<form id="reqform" class="card" style="max-width:520px;margin:24px auto 0;display:grid;gap:12px">
+  <label style="text-align:left;font-weight:600;font-size:14px">Name<input id="rq-name" required maxlength="100" autocomplete="name" style="width:100%;margin-top:4px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:inherit;font:inherit"></label>
+  <label style="text-align:left;font-weight:600;font-size:14px">Work email<input id="rq-email" type="email" required maxlength="254" autocomplete="email" style="width:100%;margin-top:4px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:inherit;font:inherit"></label>
+  <label style="text-align:left;font-weight:600;font-size:14px">Company name<input id="rq-org" required minlength="2" maxlength="120" autocomplete="organization" style="width:100%;margin-top:4px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:inherit;font:inherit"></label>
+  <label style="text-align:left;font-weight:600;font-size:14px">Your role in the company<input id="rq-role" required minlength="2" maxlength="100" autocomplete="organization-title" placeholder="e.g. Mechanical engineer, Project manager" style="width:100%;margin-top:4px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:inherit;font:inherit"></label>
+  <label style="text-align:left;font-weight:600;font-size:14px">Message <span style="font-weight:400;color:var(--mute)">(optional)</span><textarea id="rq-msg" maxlength="1000" rows="3" style="width:100%;margin-top:4px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:inherit;font:inherit;resize:vertical"></textarea></label>
+  <button class="btn primary" id="rq-btn" type="submit" style="cursor:pointer">Send request</button>
+  <div id="rq-out" role="status" style="font-size:14px;min-height:20px"></div>
+</form></div></section>
+<script>
+document.getElementById('reqform').addEventListener('submit',async function(e){
+  e.preventDefault();const b=document.getElementById('rq-btn'),o=document.getElementById('rq-out');
+  b.disabled=true;o.textContent='Sending...';o.style.color='';
+  try{
+    const r=await fetch('/api/access/request',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',cache:'no-store',
+      body:JSON.stringify({name:document.getElementById('rq-name').value,email:document.getElementById('rq-email').value,organization:document.getElementById('rq-org').value,role:document.getElementById('rq-role').value,message:document.getElementById('rq-msg').value})});
+    if(r.ok){o.style.color='#1e8449';o.textContent='Thank you. If the details are valid your request is registered and the administrator will contact you by email.';document.getElementById('reqform').reset();}
+    else if(r.status===429){o.style.color='#c0392b';o.textContent='Too many requests. Please try again later.';}
+    else{o.style.color='#c0392b';o.textContent='Please fill in your name, a valid email, your company name and your role.';}
+  }catch(err){o.style.color='#c0392b';o.textContent='Could not send the request. Please try again.';}
+  b.disabled=false;
+});
+</script>
 <section class="alt"><div class="wrap split"><div class="txt"><span class="eyebrow">Prefer an app?</span><h2>The same Ensemble, <span>on every device.</span></h2>
 <p class="sub">The browser is one more way in. For Windows, Mac, iPad, Android and Meta Quest, see the downloads.</p></div>
 <ul class="ticks"><li>No installation in the browser</li><li>Invitation-only access, controlled by an administrator</li><li>Native apps for Windows, Mac, iPad, Android and Quest</li></ul></div></section>
@@ -43,7 +70,7 @@
 <footer><div class="wrap foot">
   <div class="fbrand"><a class="logo" href="index.html"><img src="img/logo.png" alt="" width="28" height="28">Ensemble</a><p>Collaborative. Visual. Engineering.</p><p class="small">Free for one user on your own devices.</p></div>
   <div><h5>Collaborative</h5><a href="use-cases/design-reviews.html">Design Reviews</a><a href="use-cases/customer-collaboration.html">Customer Collaboration</a><a href="use-cases/supplier-collaboration.html">Supplier Collaboration</a><a href="how-it-works.html#shared">Shared Workspaces</a></div><div><h5>Visual</h5><a href="use-cases/assembly-walkthrough.html">Assembly Walkthrough</a><a href="use-cases/native-cad-files.html">Native CAD Files</a><a href="use-cases/sketch-to-3d.html">Sketch to 3D</a><a href="use-cases/showcase-presentations.html">Showcase Presentations</a><a href="use-cases/design-comparison.html">Design Comparison</a></div><div><h5>Engineering</h5><a href="use-cases/manufacturability-analysis.html">Manufacturability Analysis</a><a href="use-cases/cost-reduction.html">Cost Reduction</a><a href="use-cases/versioning.html">Versioning</a><a href="use-cases/compliance-and-audit.html">Compliance and Audit</a></div><div><h5>For teams</h5><a href="roles/design.html">Design</a><a href="roles/manufacturing.html">Manufacturing</a><a href="roles/purchasing.html">Purchasing</a><a href="organizations/enterprise.html">Enterprise</a><a href="organizations/education.html">Education</a><a href="on-premise.html">On-premise</a></div>
-  <div><h5>Product</h5><a href="features.html">Features</a><a href="how-it-works.html">How it works</a><a href="web.html">Web version</a><a href="download.html">Download</a><a href="https://github.com/gabgiani/ensemble-downloads/releases">All releases</a></div>
+  <div><h5>Product</h5><a href="features.html">Features</a><a href="how-it-works.html">How it works</a><a href="vr-cad-analysis.html">CAD analysis in VR</a><a href="web.html">Web version</a><a href="download.html">Download</a><a href="https://github.com/gabgiani/ensemble-downloads/releases">All releases</a></div>
 </div><div class="wrap copy">© 2026 DAFO · Ensemble</div></footer>
 <script src="assets/site.js" defer></script>
 </body></html>
